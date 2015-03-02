@@ -7,7 +7,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Laravel</a>
+                    <a class="navbar-brand nav-logo" href="/home">
+                        <svg id="sir" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                            <g transform="scale(0.1)">
+                                <image xlink:href="/api/logo/777/uds.svg" width="400" height="400" y="0" x="0" 	onmouseover="evt.target.setAttribute('xlink:href', '/api/logo/00bd72/uds.svg');" onmouseout="evt.target.setAttribute('xlink:href', '/api/logo/777/uds.svg');"></image>
+                            </g>
+                        </svg>
+                    </a>
+                    <a class="navbar-brand" href="/home">
+                        Underdogs
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -24,6 +24,7 @@ class CreatePermissionSystem extends Migration {
             $table->increments('id')->unsigned();
             $table->char('name',255)->unique()->index();
             $table->char('pretty_name', 255);
+            $table->char('category', 255);
         });
         Schema::create('permission_role', function($table)
         {

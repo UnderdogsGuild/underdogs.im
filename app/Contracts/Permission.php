@@ -1,4 +1,5 @@
 <?php namespace App\Contracts;
+use App\Role;
 use App\User;
 
 /**
@@ -10,9 +11,11 @@ use App\User;
  */
 interface Permission {
 
-    public function can(Permission $permission, User $user = null);
+    public static function can(\App\Permission $permission, User $user = null);
 
-    public function hasRole(User $user = null);
+    public static function hasRole(Role $role, User $user = null);
 
-    public function guestPermissions();
+    public static function guestPermissions();
+
+    public static function canString($permission, User $user = null);
 }

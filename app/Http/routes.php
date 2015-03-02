@@ -1,4 +1,7 @@
 <?php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Auth as Auth2;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -20,5 +23,7 @@ Route::controllers([
 ]);
 
 Route::get('test', function() {
-    Bus::dispatch(new \App\Commands\CreateShoutMessage(Auth::user(), 'Yay more slack testing!'));
+    return \Config::get('permissions');
 });
+
+Route::get('/api/logo/{color}/uds.svg', 'ApiController@logoSvg');

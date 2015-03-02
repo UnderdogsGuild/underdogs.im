@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -18,17 +20,20 @@ class WelcomeController extends Controller {
      */
 	public function __construct()
 	{
-		$this->middleware('guest');
+        $this->middleware('\App\Http\Middleware\CheckPermission');
+		//$this->middleware('guest');
 	}
 
-	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return string
-	 */
+    /**
+     * Show the application welcome screen to the user.
+     *
+     * @param Request $request
+     * @return string
+     */
 	public function index()
 	{
-		return view('welcome');
+        return view('welcome');
+
 	}
 
 }

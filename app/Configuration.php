@@ -17,7 +17,7 @@ class Configuration extends Model {
      * @return bool
      */
     public static function storeArray($key, $value) {
-        if($query = Configuration::where('key', '=', $key)->count() == 0) {
+        if($query = Configuration::where('key', '=', $key)->count() != 0) {
             return false;
         }
         $store = new Configuration();
