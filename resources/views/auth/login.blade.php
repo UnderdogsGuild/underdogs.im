@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input id="email_input" type="email" class="form-control" name="email" value="{{ old('email') }}"  data-toggle="popover" data-placement="bottom" title="Use Your Email" data-content="Instead of using a username like before, use your email address - and the password you used to use. You don't need to register again.">
 							</div>
 						</div>
 
@@ -36,7 +36,7 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
 										<input type="checkbox" name="remember"> Remember Me
@@ -60,4 +60,12 @@
 		</div>
 	</div>
 </div>
+@endsection
+@section('scripts')
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        $('#email_input').popover({trigger : 'focus'})
+    </script>
 @endsection

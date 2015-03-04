@@ -6234,5 +6234,17 @@ label,
 .nav-logo {
   padding: 5px;
 }
+.welcome-container {
+  height: 100vh;
+  margin-top: -72px;
+  text-align: center;
+}
+#sir {
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+  margin-left: -108px;
+  margin-top: -108px;
+}
 
 /*# sourceMappingURL=app.css.map */

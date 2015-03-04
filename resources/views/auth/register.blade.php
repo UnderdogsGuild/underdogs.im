@@ -7,17 +7,6 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Register</div>
 				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
-
 					<form class="form-horizontal" role="form" method="POST" action="/auth/register">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -49,6 +38,12 @@
 							</div>
 						</div>
 
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="g-recaptcha" data-sitekey="6Lfg8wITAAAAAPOwVdd0a3LmNzV2jF3ViL7LIue2"></div>
+                            </div>
+                        </div>
+
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
@@ -56,10 +51,14 @@
 								</button>
 							</div>
 						</div>
+
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+@endsection
+@section('head')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

@@ -6,6 +6,9 @@ use Validator;
 
 class Registrar implements RegistrarContract {
 
+    public function __construct()
+    {
+    }
 	/**
 	 * Get a validator for an incoming registration request.
 	 *
@@ -14,11 +17,17 @@ class Registrar implements RegistrarContract {
 	 */
 	public function validator(array $data)
 	{
-		return Validator::make($data, [
-			'username' => 'required|max:255',
-			'email' => 'required|email|max:255|unique:users',
-			'password' => 'required|confirmed|min:6',
-		]);
+		return Validator::make(
+            $data,
+            [
+			    'username' => 'required|max:255',
+			    'email' => 'required|email|max:255|unique:users',
+			    'password' => 'required|confirmed|min:6',
+                'g-recaptcha-response' => 'required|recaptcha',
+		    ],
+            ['g-recaptcha-response.required' => 'You must prove your humanity.']
+        );
+
 	}
 
 	/**

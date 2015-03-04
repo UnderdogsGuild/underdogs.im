@@ -135,7 +135,8 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-
+        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
         /*
          * IDE Provider
          */
@@ -150,6 +151,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+        'App\Providers\PermissionServiceProvider',
+        'App\Providers\SpecialValidationProvider',
 
 	],
 
@@ -198,6 +201,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+        'Bugsnag' => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
+        'Flash' => 'Laracasts\Flash\Flash'
 
 	],
 
@@ -212,6 +217,4 @@ return [
     'slack_outgoing_webhook' => [
         'token'       => 'tY6NavDzATVgktCWSG41Hf8I'
     ],
-
-    'bugsnag_api_key' => 'd69ac23873c534597a8b16a8a544a04e',
 ];

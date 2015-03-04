@@ -1,10 +1,9 @@
 <?php namespace App\Exceptions;
 
-use Bugsnag_Client;
 use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+//use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler;
 use App;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 class Handler extends ExceptionHandler {
 
@@ -27,11 +26,11 @@ class Handler extends ExceptionHandler {
 	public function report(Exception $e)
 	{
 
-        $bugsnag = new Bugsnag_Client(\Config::get('app.bugsnag_api_key'));
-        $bugsnag->setProjectRoot(app_path());
-        $bugsnag->setSendEnvironment(true);
-        $bugsnag->setReleaseStage(App::environment());
-        $bugsnag->notifyException($e);
+        //$bugsnag = new Bugsnag_Client(\Config::get('app.bugsnag_api_key'));
+        //$bugsnag->setProjectRoot(app_path());
+        //$bugsnag->setSendEnvironment(true);
+        //$bugsnag->setReleaseStage(App::environment());
+        //$bugsnag->notifyException($e);
         return parent::report($e);
 	}
 
