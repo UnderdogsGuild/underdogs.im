@@ -2,7 +2,7 @@
 
 use App\Commands\Command;
 
-use App\Exceptions\CreateShoutException;
+use App\Exceptions\ShoutCreationException;
 use App\User;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -35,7 +35,7 @@ class CreateShoutMessage extends Command implements SelfHandling, ShouldBeQueued
     /**
      * Execute the command.
      *
-     * @throws CreateShoutException
+     * @throws ShoutCreationException
      */
 	public function handle()
 	{
@@ -48,7 +48,7 @@ class CreateShoutMessage extends Command implements SelfHandling, ShouldBeQueued
         if($response->getStatusCode() == '200') {
             Event::fire(new ShoutWasCreated($response, $this->user, $this->message));
         }else {
-            throw new CreateShoutException($response, $this->user, $this->message);
+            throw new ShoutCreationException($response, $this->user, $this->message);
         }
 	}
 }

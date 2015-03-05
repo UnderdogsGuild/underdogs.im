@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
         $this->createPermissions();
-        $this->createServerAdmin();
+        $this->createServerAdmin('Server Admin', 'server_admin', 'sa');
+        $this->createServerAdmin('Topdog', 'topdog', 'td');
     }
 
     /**
@@ -39,14 +40,19 @@ class DatabaseSeeder extends Seeder {
         }
     }
 
-    private function createServerAdmin()
+    private function createServerAdmin($prettyname, $uglyname, $doubleletter)
     {
         $permission = Permission::whereName('override')->firstOrFail();
         $role = new Role();
-        $role->name = 'server_admin';
-        $role->pretty_name = 'Server Admin';
-        $role->icon = '/img/sa.png';
+        $role->name = $uglyname;
+        $role->pretty_name = $prettyname;
+        $role->icon = '/img/' . $doubleletter . '.png';
         $role->save();
         DB::table('permission_role')->insert(['role_id' => $role->id, 'permission_id' => $permission->id]);
+    }
+
+    private function createWatchdog()
+    {
+
     }
 }

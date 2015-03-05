@@ -18,7 +18,7 @@ class HomeController extends Controller {
      */
 	public function __construct()
 	{
-		$this->middleware('\App\Http\Middleware\CheckPermission');
+        $this->middleware('\App\Http\Middleware\CheckPermission');
 	}
 
 	/**

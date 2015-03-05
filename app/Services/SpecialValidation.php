@@ -28,7 +28,6 @@ class SpecialValidation extends \Illuminate\Validation\Validator
 
     public function validateRecaptcha($attributes, $value, $parameters)
     {
-        return false;
         $client = new Client();
         $request = $client->createRequest('POST', 'https://www.google.com/recaptcha/api/siteverify');
         $postBody = $request->getBody();

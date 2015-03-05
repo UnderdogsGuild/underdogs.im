@@ -21,20 +21,25 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        <b>We're the Underdogs.</b> Our site is currently being revamped to serve our needs for communicating better. So it's a little...empty right now.
+                        <b>We're the Underdogs.</b> And our site is currently being revamped to serve our needs for communicating better. So it's a little...empty right now.
                         If you're looking to join us in FFXIV on Leviathan, get in touch with Mirakell Wilo, our FC leader.
                     </p>
                     <p>
                         For more information on our FC, check out our post on the <a href="http://forum.square-enix.com/ffxiv/threads/200052-Looking-for-new-members-for-2.4-and-onwards!?p=2537001">FF forums</a>.
                     </p>
                     <p>
-                        If you're an FC member, log right in like you've always done. Then you can enjoy the nothingness! For the moment, we'll only be listing upcoming FC events.
+                        If you're an FC member, login is disabled for a couple days while your info is being migrated.
+                    </p>
+                    <p>
+                        With love, <br/>
+                        Faore
+                        <i class="fa fa-heart"></i>
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <a class="btn btn-default" data-dismiss="modal">Close</a>
-                    <a class="btn btn-success" href="/auth/register" data-toggle="tooltip" data-placement="top" title="There's not much inside yet.">Join Us</a>
-                    <a class="btn btn-primary" href="/auth/login">Login</a>
+                    <a class="btn btn-danger" data-dismiss="modal">Close</a>
+                    <!--<a class="btn btn-success" href="/auth/register" data-toggle="tooltip" data-placement="top" title="There's not much inside yet.">Join Us</a>
+                    <a class="btn btn-primary" href="/auth/login">Login</a>-->
                 </div>
             </div>
         </div>

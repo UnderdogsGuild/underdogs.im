@@ -20,8 +20,8 @@ class WelcomeController extends Controller {
      */
 	public function __construct()
 	{
-        $this->middleware('\App\Http\Middleware\CheckPermission');
-		//$this->middleware('guest');
+        //$this->middleware('\App\Http\Middleware\CheckPermission');
+		$this->middleware('guest');
 	}
 
     /**

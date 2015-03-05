@@ -7,24 +7,14 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
 
 					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">UnderdogsID</label>
 							<div class="col-md-6">
-								<input id="email_input" type="email" class="form-control" name="email" value="{{ old('email') }}"  data-toggle="popover" data-placement="bottom" title="Use Your Email" data-content="Instead of using a username like before, use your email address - and the password you used to use. You don't need to register again.">
+								<input id="username_input" type="text" class="form-control" name="username" value="{{ old('username') }}"  data-toggle="popover" data-placement="bottom" title="Login Like Usual" data-content="Your UnderdogsID is still here! No need to register again. The site looks drastically different and the forums are gone, but your account isn't. :)">
 							</div>
 						</div>
 

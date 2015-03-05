@@ -6240,7 +6240,7 @@ label,
   text-align: center;
 }
 #sir {
-  position: relative;
+  position: absolute;
   top: 50%;
   bottom: 50%;
   margin-left: -108px;

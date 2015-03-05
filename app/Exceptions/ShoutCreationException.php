@@ -4,7 +4,7 @@
 use App\User;
 use Exception;
 
-class CreateShoutException extends Exception {
+class ShoutCreationException extends Exception {
 
     private $user;
     private $response;
