@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder {
         $this->createPermissions();
         $this->createServerAdmin('Server Admin', 'server_admin', 'sa');
         $this->createServerAdmin('Topdog', 'topdog', 'td');
+        $this->createSimpleRoles();
     }
 
     /**
@@ -51,8 +52,17 @@ class DatabaseSeeder extends Seeder {
         DB::table('permission_role')->insert(['role_id' => $role->id, 'permission_id' => $permission->id]);
     }
 
-    private function createWatchdog()
+    private function createSimpleRoles()
     {
-
+        $names = ['Watchdog', 'Underdog', 'Applicant', 'Former Member'];
+        $prettynames = ['watchdog', 'underdog', 'applicant', 'former_member'];
+        $doubleletters = ['wd', 'ud', 'ap', 'fm'];
+        for($i = 0; $i < count($names); $i++) {
+            Role::create([
+                'name' => $names[$i],
+                'pretty_name' => $names[$i],
+                'icon' => '/img/' . $doubleletters[$i] . '.png',
+            ]);
+        }
     }
 }

@@ -64,24 +64,17 @@ return [
 			'strict'    => false,
 		],
 
-		'pgsql' => [
-			'driver'   => 'pgsql',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
-		],
-
-		'sqlsrv' => [
-			'driver'   => 'sqlsrv',
-			'host'     => env('DB_HOST', 'localhost'),
-			'database' => env('DB_DATABASE', 'forge'),
-			'username' => env('DB_USERNAME', 'forge'),
-			'password' => env('DB_PASSWORD', ''),
-			'prefix'   => '',
+        //For use with the Migration Seeder
+		'old_db' => [
+			'driver'    => 'mysql',
+			'host'      => '192.168.10.1',
+			'database'  => 'uds-laravel',
+			'username'  => 'root',
+			'password'  => '',
+			'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+			'prefix'    => 'udsl_',
+            'strict'    => false,
 		],
 
 	],

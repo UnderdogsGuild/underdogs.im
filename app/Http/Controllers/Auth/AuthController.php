@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -41,7 +42,17 @@ class AuthController extends Controller {
         ]);
 
         $credentials = $request->only('username', 'password');
-
+        if ($user = \App\User::whereUsername($request->username)->first())
+        {
+            if(!is_null($user->banned_at) && $user->banned_at <= Carbon::now())
+            {
+                return redirect($this->loginPath())
+                    ->withInput($request->only('username', 'remember'))
+                    ->withErrors([
+                        'username' => 'You are currently banned and cannot login.',
+                    ]);
+            }
+        }
         if ($this->auth->attempt($credentials, $request->has('remember')))
         {
             return redirect()->intended($this->redirectPath());
