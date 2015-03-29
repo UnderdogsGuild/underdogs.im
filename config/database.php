@@ -54,8 +54,8 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => '192.168.10.1',
-			'database'  => 'uds_laravel5',
+			'host'      => 'localhost',
+			'database'  => 'uds-laravel5',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
@@ -67,7 +67,7 @@ return [
         //For use with the Migration Seeder
 		'old_db' => [
 			'driver'    => 'mysql',
-			'host'      => '192.168.10.1',
+			'host'      => 'localhost',
 			'database'  => 'uds-laravel',
 			'username'  => 'root',
 			'password'  => '',
