@@ -12,7 +12,9 @@ use Auth as Auth2;
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
+ * Main Site Routes
+ */
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
@@ -21,9 +23,17 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
-Route::get('test', function() {
-    return \Config::get('permissions');
-});
-
+/*
+ * Administration Routes
+ */
+Route::get('admin', 'Admin\AdministrationController@index');
+Route::get('admin/events', 'Admin\EventsController@index');
+Route::get('admin/events/active', 'Admin\EventsController@indexActive');
+Route::get('admin/events/unpublished', 'Admin\EventsController@indexUnpublished');
+Route::get('admin/events/deleted', 'Admin\EventsController@indexDeleted');
+Route::get('admin/events/create', 'Admin\EventsController@create');
+Route::post('admin/events/create', 'Admin\EventsController@store');
+/*
+ * API Routes
+ */
 Route::get('/api/logo/{color}/uds.svg', 'ApiController@logoSvg');

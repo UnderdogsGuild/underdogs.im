@@ -25,12 +25,6 @@ class Handler extends ExceptionHandler {
 	 */
 	public function report(Exception $e)
 	{
-
-        //$bugsnag = new Bugsnag_Client(\Config::get('app.bugsnag_api_key'));
-        //$bugsnag->setProjectRoot(app_path());
-        //$bugsnag->setSendEnvironment(true);
-        //$bugsnag->setReleaseStage(App::environment());
-        //$bugsnag->notifyException($e);
         return parent::report($e);
 	}
 
@@ -46,6 +40,8 @@ class Handler extends ExceptionHandler {
         if ($e instanceof \Symfony\Component\HttpKernel\Exception\HttpException)
         {
             //We threw some App::abort() exception.
+            //If its an unauthorized request, we don't need the app to explode,
+            //so we'll just redirect them back to the login page.
             if($e->getStatusCode() == 401)
             {
                 return redirect()->guest('auth/login');
