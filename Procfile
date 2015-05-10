@@ -1,1 +1,1 @@
-heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-php
+web: vendor/bin/heroku-php-apache2 public
