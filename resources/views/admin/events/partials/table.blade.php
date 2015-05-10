@@ -25,7 +25,7 @@
                 </td>
                 <td>
                     <a href="/admin/events/edit/{{$event->id}}">
-                        {{ $event->published_at->format('m/d/Y h:i:s A') }}
+                        {{ $event->published_at->timezone(Auth::user()->timezone)->format('m/d/Y h:i:s A') }}
                     </a>
                 </td>
             </tr>

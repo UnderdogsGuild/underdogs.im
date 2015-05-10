@@ -8,24 +8,25 @@
         <input type="hidden" class="form-control" name="content" id="content">
     </div>
     <div class="well well-lg editable">
-        {{(isset($event) ? $event->content : 'Your awesome content.')}}
+        {!!(isset($event) ? $event->content : 'Your awesome content.')!!}
     </div>
     <div class="form-group">
         <label for="content">Publish At</label>
         <div class='input-group date' id='publish-picker'>
-            <input type='text' class="form-control" name="published_at" id="published_at" value="{{(isset($event) ? $event->published_at->format('m/d/Y h:i:s A') : \Carbon\Carbon::now()->format('m/d/Y h:i:s A'))}}">
+            <input type='text' class="form-control" name="published_at" id="published_at">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
         </div>
                 <span class="help-block">
-                    It is currently {{\Carbon\Carbon::now()->format('m/d/Y h:i:s A')}} server time.
+                    It is currently {{\Carbon\Carbon::now(Auth::user()->timezone)->format('m/d/Y h:i:s A')}} in your chosen timezone ({{\Auth::user()->timezone != null ? \Auth::user()->timezone : 'UTC'}}). Schedule your event in this timezone.
                 </span>
     </div>
     <script type="text/javascript">
         $(function () {
             $('#publish-picker').datetimepicker({
-                locale: 'en'
+                locale: 'en',
+                defaultDate: '{{(isset($event) ? $event->published_at->format('m/d/Y h:i:s A') : \Carbon\Carbon::now()->format('m/d/Y h:i:00 A'))}}'
             });
         });
     </script>

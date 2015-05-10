@@ -39,6 +39,18 @@
 						</div>
 
                         <div class="form-group">
+                            <label class="col-md-4 control-label">Timezone</label>
+                            <div class="col-md-6">
+                                <select class="form-control">
+                                    @foreach(DateTimeZone::listIdentifiers() as $timezone)
+                                    <option value="{{ $timezone }}">{{ $timezone }}</option>
+                                    @endforeach
+                                </select>
+                        </div>
+
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="g-recaptcha" data-sitekey="6Lfg8wITAAAAAPOwVdd0a3LmNzV2jF3ViL7LIue2"></div>
                             </div>
