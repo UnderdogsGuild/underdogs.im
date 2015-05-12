@@ -24,6 +24,7 @@ class Registrar implements RegistrarContract {
 			    'email' => 'required|email|max:255|unique:users',
 			    'password' => 'required|confirmed|min:6',
                 'g-recaptcha-response' => 'required|recaptcha',
+                'timezone' => 'required',
 		    ],
             ['g-recaptcha-response.required' => 'You must prove your humanity.']
         );
@@ -43,6 +44,7 @@ class Registrar implements RegistrarContract {
         $user->setPassword($data['password']);
         $user->email = $data['email'];
         $user->service_email_id = null;
+        $user->timezone = $data['timezone'];
         $user->save();
         return $user;
 	}

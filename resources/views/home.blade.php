@@ -10,18 +10,23 @@
                     Like Coil!
                 </small>
             </h1>
+            @foreach($events as $event)
             <article>
                 <h3>
-                    Coil
+                    {{ $event->title }}
                     <small>
-                        Saturday, March 7th
+                        {{ $event->start_at->format('M d, Y') }} to {{ $event->end_at }}
                     </small>
                 </h3>
-                <p>
-                    Coil will be held this saturday. The time has yet to be decided.
-                </p>
+                {!! $event->content !!}
             </article>
+            @endforeach
         </div>
 	</div>
+    <div class="row">
+        <div class="text-center ud-paginate">
+            {!! $events->render() !!}
+        </div>
+    </div>
 </div>
 @endsection

@@ -13,4 +13,6 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.less('app.less');
+    mix.version(["css/app.css", "js/app.js"]);
+    mix.scripts(['jquery.js', 'bootstrap.js', 'moment.js', 'bootstrap-datetimepicker.js', 'summernote.js'], 'public/js/app.js');
 });

@@ -61,8 +61,13 @@ class AuthController extends Controller {
         return redirect($this->loginPath())
             ->withInput($request->only('username', 'remember'))
             ->withErrors([
-                'username' => $this->getFailedLoginMesssage(),
+                'username' => $this->getFailedLoginMessage(),
             ]);
+    }
+
+    protected function getFailedLoginMessage()
+    {
+        return 'Oops! That UnderdogsID and password don\'t match.';
     }
 
 }

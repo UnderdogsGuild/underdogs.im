@@ -23,7 +23,7 @@ class ShoutCreationException extends Exception {
     }
 
     public function __toString() {
-        return __CLASS__ . ": Shout message failed. From: " . $this->user()->username . ". Message: " . $this->attempted_message . " Response was: " . $this->response;
+        return __CLASS__ . ": Shout message failed. From: " . $this->user->username . ". Message: " . $this->attempted_message . " Response was: " . $this->response;
     }
 
     final public function getUser() {

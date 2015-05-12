@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Event;
+use Illuminate\Support\Facades\App;
+
 class HomeController extends Controller {
 
 	/*
@@ -28,7 +31,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+        $events = Event::findActive()->paginate(10);
+		return view('home')->with('events', $events);
 	}
 
 }

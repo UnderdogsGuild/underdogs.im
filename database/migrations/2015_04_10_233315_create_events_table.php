@@ -18,6 +18,8 @@ class CreateEventsTable extends Migration {
 			$table->string('title');
             $table->text('content');
             $table->timestamp('published_at');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

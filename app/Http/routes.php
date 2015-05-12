@@ -27,12 +27,16 @@ Route::controllers([
  * Administration Routes
  */
 Route::get('admin', 'Admin\AdministrationController@index');
+//Events Controller
 Route::get('admin/events', 'Admin\EventsController@index');
 Route::get('admin/events/active', 'Admin\EventsController@indexActive');
 Route::get('admin/events/unpublished', 'Admin\EventsController@indexUnpublished');
 Route::get('admin/events/deleted', 'Admin\EventsController@indexDeleted');
 Route::get('admin/events/create', 'Admin\EventsController@create');
+Route::get('admin/events/{id}/edit', 'Admin\EventsController@edit');
+Route::post('admin/events/{id}/edit', 'Admin\EventsController@update');
 Route::post('admin/events/create', 'Admin\EventsController@store');
+Route::get('admin/events/{id}/delete', 'Admin\EventsController@destroy');
 /*
  * API Routes
  */

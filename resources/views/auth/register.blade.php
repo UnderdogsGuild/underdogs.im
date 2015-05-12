@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Timezone</label>
                             <div class="col-md-6">
-                                <select class="form-control">
+                                <select class="form-control" name="timezone">
                                     @foreach(DateTimeZone::listIdentifiers() as $timezone)
                                     <option value="{{ $timezone }}">{{ $timezone }}</option>
                                     @endforeach
