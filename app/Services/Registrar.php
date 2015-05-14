@@ -23,7 +23,7 @@ class Registrar implements RegistrarContract {
 			    'username' => 'required|max:255',
 			    'email' => 'required|email|max:255|unique:users',
 			    'password' => 'required|confirmed|min:6',
-                'g-recaptcha-response' => 'required|recaptcha',
+                'g-recaptcha-response' => '',
                 'timezone' => 'required',
 		    ],
             ['g-recaptcha-response.required' => 'You must prove your humanity.']
