@@ -3,6 +3,10 @@
 use Exception;
 //use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use App;
 
 class Handler extends ExceptionHandler {
@@ -13,7 +17,10 @@ class Handler extends ExceptionHandler {
 	 * @var array
 	 */
 	protected $dontReport = [
-		'Symfony\Component\HttpKernel\Exception\HttpException'
+		AuthorizationException::class,
+		HttpException::class,
+		ModelNotFoundException::class,
+		ValidationException::class,
 	];
 
 	/**

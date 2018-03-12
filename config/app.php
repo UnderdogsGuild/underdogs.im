@@ -2,6 +2,8 @@
 
 return [
 
+	'env' => env('APP_ENV', 'production'),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -26,7 +28,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://www.underdogs.im',
+	'url' => 'http://www.underdogsguild.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -113,12 +115,10 @@ return [
 		/*
 		 * Laravel Framework Service Providers...
 		 */
-		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Bus\BusServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
 		'Illuminate\Encryption\EncryptionServiceProvider',
@@ -135,24 +135,18 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
-        'Laracasts\Flash\FlashServiceProvider',
-        /*
-         * IDE Provider
-         */
-
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-
-		/*
-		 * Application Service Providers...
-		 */
+    'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
+    'Laracasts\Flash\FlashServiceProvider',
+		'Illuminate\Broadcasting\BroadcastServiceProvider',
+		// IDE service provider
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		// App service providers
 		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-        'App\Providers\PermissionServiceProvider',
-        'App\Providers\SpecialValidationProvider',
+    'App\Providers\PermissionServiceProvider',
+    'App\Providers\SpecialValidationProvider',
 
 	],
 
@@ -201,8 +195,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-        'Bugsnag' => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
-        'Flash' => 'Laracasts\Flash\Flash'
+		'Gate'			=> Illuminate\Support\Facades\Gate::class,
+    'Bugsnag'		=> 'Bugsnag\BugsnagLaravel\BugsnagFacade',
+    'Flash'			=> 'Laracasts\Flash\Flash'
 
 	],
 

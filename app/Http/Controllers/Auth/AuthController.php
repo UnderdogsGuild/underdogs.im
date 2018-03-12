@@ -23,15 +23,9 @@ class AuthController extends Controller {
 
     /**
      * Create a new authentication controller instance.
-     *
-     * @param  \Illuminate\Contracts\Auth\Guard $auth
-     * @param  \Illuminate\Contracts\Auth\Registrar $registrar
      */
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct()
 	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
-
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
@@ -58,7 +52,7 @@ class AuthController extends Controller {
             return redirect()->intended($this->redirectPath());
         }
 
-        return redirect($this->loginPath())
+        return redirect()->back()
             ->withInput($request->only('username', 'remember'))
             ->withErrors([
                 'username' => $this->getFailedLoginMessage(),

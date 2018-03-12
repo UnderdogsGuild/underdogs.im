@@ -1,6 +1,6 @@
-<?php namespace App\Commands;
+<?php namespace App\Jobs;
 
-use App\Commands\Command;
+use App\Jobs\Job;
 
 use App\Exceptions\ShoutCreationException;
 use App\User;
@@ -13,7 +13,7 @@ use Config;
 use App\Events\ShoutWasCreated;
 use Event;
 
-class CreateShoutMessage extends Command implements SelfHandling, ShouldBeQueued {
+class CreateShoutMessage extends Job implements ShouldBeQueued {
 
     use InteractsWithQueue, SerializesModels;
 
@@ -52,4 +52,3 @@ class CreateShoutMessage extends Command implements SelfHandling, ShouldBeQueued
         }
 	}
 }
-

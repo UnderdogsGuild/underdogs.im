@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
         $this->createPermissions();
         $this->createServerAdmin('Server Admin', 'server_admin', 'sa');
         $this->createServerAdmin('Topdog', 'topdog', 'td');
